@@ -22,8 +22,17 @@ class WebPageLoader implements ILoader{
     async loadData():Promise<Response|undefined> {
         try {
             const response = await fetch(process.env.STEAM_WEBSERVER as string);
+            
+            if(!response.ok){
+                throw new Error(response.status + 
+                    response.statusText + 
+                    'Unable to load steam consumption counter webserver');
+            }
+            
             console.log(`Status code ${response.status}: response loaded successfully`)
-            return response} 
+            
+            return response
+        } 
         catch (error) {
             console.log(error)
             console.log(new Date())
