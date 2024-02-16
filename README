@@ -1,0 +1,24 @@
+# Webpage downloader & Data Uploader to ThingSpeak
+
+## Overview
+This program is designed to download a web page, extract useful data, and upload it to a ThingSpeak database using POST request.
+
+## Installation
+1. Clone this repository
+2. Navigate to the project directory
+3. Install the required dependencies: npm install
+4. Run typescript compiler: npx tsc
+
+## Usage
+1. create env. file and insert variables
+    STEAM_WEBSERVER = ...
+    DATABASE = ...
+    WRITE_API_KEY = ...
+2. Navigate to dist/src/: cd dist/src
+3. Run the `init.js` script: node init.js
+
+## License
+This project is only for internal use of Vyrolat company.
+
+
+
