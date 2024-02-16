@@ -7,13 +7,13 @@ This program is designed to download a web page, extract useful data, and upload
 1. Clone this repository
 2. Navigate to the project directory
 3. Install the required dependencies: npm install
-4. Run typescript compiler: npx tsc
-
-## Usage
-1. create .env file and insert variables
+4. Create .env file and insert variables
     STEAM_WEBSERVER = ...
     DATABASE = ...
     WRITE_API_KEY = ...
+5. Run typescript compiler: npx tsc
+
+## Usage
 2. Navigate to dist/src/: cd dist/src
 3. Run the `init.js` script: node init.js
 
