@@ -1,5 +1,5 @@
-import { dataLoader, ILoader } from './webpageDownloading'
-import { storageAdapter, ISotrageAdapter } from './dataRepository'
+import { ILoader } from './webpageDownloading'
+import { ISotrageAdapter } from './dataRepository'
 
 
 
@@ -24,7 +24,7 @@ export class DataFlowController implements IDataManager {
     storageAdapter:ISotrageAdapter // Object responsible for obtaining useful data from downloaded webpage and storing the data
     
 
-    constructor(){
+    constructor(dataLoader:ILoader, storageAdapter:ISotrageAdapter){
         this.dataLoader = dataLoader
         this.storageAdapter = storageAdapter
     }

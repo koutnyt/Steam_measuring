@@ -1,6 +1,8 @@
 import { DataFlowController, IDataManager } from './dataFlowControlling'
 import schedule from 'node-schedule'
 import dotenv from 'dotenv';
+import { WebPageLoader } from './webpageDownloading';
+import { StorageAdapter } from './dataRepository';
 
 
 
@@ -12,7 +14,7 @@ dotenv.config({path:'../../.env'});
 
 //factory function
 function createDataFlowController():IDataManager{
-    return new DataFlowController()
+    return new DataFlowController(new WebPageLoader(), new StorageAdapter())
 }
 
 

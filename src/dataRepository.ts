@@ -140,7 +140,7 @@ export class StorageAdapter implements ISotrageAdapter{
  * @class DataStorageManager
  * @implements {ISotrageManager}
  */
-class DataStorageManager implements ISotrageManager{
+export class DataStorageManager implements ISotrageManager{
     /**
      * Stores the provided JSON data to a specified database link.
      *
@@ -175,11 +175,6 @@ class DataStorageManager implements ISotrageManager{
         }
     }
 }
-
-
-
-
-export const storageAdapter = new StorageAdapter()
 
 
 

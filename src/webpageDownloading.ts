@@ -11,7 +11,7 @@ export interface ILoader{
  * @class WebPageLoader
  * @implements {ILoader}
  */
-class WebPageLoader implements ILoader{
+export class WebPageLoader implements ILoader{
 
     /**
      * Loads webpage asynchronously
@@ -40,11 +40,6 @@ class WebPageLoader implements ILoader{
         }
     }
 }
-
-
-
-
-export const dataLoader = new WebPageLoader()
 
 
 
