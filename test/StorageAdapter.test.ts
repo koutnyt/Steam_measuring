@@ -1,6 +1,6 @@
 import { JSDOM } from 'jsdom';
 import { StorageAdapter } from "../src/dataRepository";
-
+import { DataStorageManager } from '../src/dataRepository';
 
 
 /*
@@ -17,7 +17,7 @@ describe('StorageAdapter.domElementTextContentToNumber(', () => {
 
 describe('StorageAdapter.jsDomdDataToJSON', () => {
   it('Should read the text content of a DOM element of downloaded webpage and parses it to a JSON Data structure for thingspeak.', () => {
-    const storageAdapter = new StorageAdapter();
+    const storageAdapter = new StorageAdapter(new DataStorageManager());
     const mockDate = new Date('2024-02-14T12:00:00Z');
     const spy = jest.spyOn(global, 'Date').mockImplementation(() => mockDate)
 

@@ -3,14 +3,14 @@ import { JSDOM } from 'jsdom';
 
 
 
-export interface ISotrageAdapter{
+export interface IStorageAdapter{
     storeData(data:Response):void
 }
 
 
 
 
-interface ISotrageManager{
+export interface IStorageManager{
     storeData(data:DataStructure):void
 }
 
@@ -42,14 +42,14 @@ interface MeasureValue {
  * 
  * 
  * @class StorageAdapter
- * @implements {ISotrageAdapter}
+ * @implements {IStorageAdapter}
  */
-export class StorageAdapter implements ISotrageAdapter{
+export class StorageAdapter implements IStorageAdapter{
     
-    private adaptee: ISotrageManager;
+    private adaptee: IStorageManager;
 
-    constructor(){
-        this.adaptee = new DataStorageManager()
+    constructor(adaptee: IStorageManager){
+        this.adaptee = adaptee
     }
     
     private async responseToText(response:Response):Promise<string>{
@@ -133,14 +133,16 @@ export class StorageAdapter implements ISotrageAdapter{
 
 
 
-
 /**
  * Manages the storage of data.
  *
  * @class DataStorageManager
- * @implements {ISotrageManager}
+ * @implements {IStorageManager}
  */
-export class DataStorageManager implements ISotrageManager{
+export class DataStorageManager implements IStorageManager{
+
+    constructor(){}
+
     /**
      * Stores the provided JSON data to a specified database link.
      *

@@ -1,12 +1,12 @@
 import { ILoader } from './webpageDownloading'
-import { ISotrageAdapter } from './dataRepository'
+import { IStorageAdapter } from './dataRepository'
 
 
 
 
 export interface IDataManager{
     dataLoader:ILoader
-    storageAdapter:ISotrageAdapter
+    storageAdapter:IStorageAdapter
     processData():Promise<void>
 }
 
@@ -21,10 +21,10 @@ export interface IDataManager{
 export class DataFlowController implements IDataManager {
     
     dataLoader:ILoader // Object responsible for downloading webpage
-    storageAdapter:ISotrageAdapter // Object responsible for obtaining useful data from downloaded webpage and storing the data
+    storageAdapter:IStorageAdapter // Object responsible for obtaining useful data from downloaded webpage and storing the data
     
 
-    constructor(dataLoader:ILoader, storageAdapter:ISotrageAdapter){
+    constructor(dataLoader:ILoader, storageAdapter:IStorageAdapter){
         this.dataLoader = dataLoader
         this.storageAdapter = storageAdapter
     }
