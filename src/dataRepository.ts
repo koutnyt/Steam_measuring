@@ -141,8 +141,6 @@ export class StorageAdapter implements IStorageAdapter{
  */
 export class DataStorageManager implements IStorageManager{
 
-    constructor(){}
-
     /**
      * Stores the provided JSON data to a specified database link.
      *

@@ -48,7 +48,7 @@ export class DataFlowController implements IDataManager {
      */
     async processData():Promise<void> {
         let data = await this.downloadData()
-        // Continuously attempt to download webpage until successfull
+        // Continuously attempt to download webpage until successful
         while (!data) {
             data = await this.downloadData()
         }

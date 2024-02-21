@@ -15,7 +15,7 @@ This program is designed to download a web page, extract useful data, and upload
 
 ## Usage
 2. Navigate to dist/src/
-3. Run the `init.js` script: node init.js
+3. Run the `main.js` script: node main.js
 
 
 
