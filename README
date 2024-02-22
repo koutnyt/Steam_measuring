@@ -1,6 +1,7 @@
 # Webpage downloader & Data Uploader to ThingSpeak
 
 ## Overview
+Can be use if a web server does not have API interface and you need to extract information from it and save them to a database.
 This program is designed to download a web page, extract useful data, and upload it to a ThingSpeak database using POST request.
 
 ## Installation
