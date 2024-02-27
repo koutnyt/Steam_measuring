@@ -20,5 +20,5 @@ Code in main file checks if environmental variables exist, creates new data flow
 5. Run typescript compiler: npx tsc
 
 ## Usage
-2. Navigate to dist/src/
-3. Run the `main.js` script: node main.js
+1. Navigate to dist/src/
+2. Run the `main.js` script: node main.js
