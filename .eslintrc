@@ -1,0 +1,28 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+      "project": ["./tsconfig.json"]
+  },
+  "plugins": [
+    "@typescript-eslint/eslint-plugin"
+  ],
+  "extends": [
+      "airbnb-base",
+      "airbnb-typescript/base"
+    ],
+  "rules": {
+      
+      "@typescript-eslint/type-annotation-spacing": ["error", { "before": false, "after": true }],
+      "@typescript-eslint/indent": ["error", 4],
+      "@typescript-eslint/no-unnecessary-type-constraint": "error",
+      "linebreak-style":["error", "windows"],
+      "no-console": "off",
+      "max-len": "off",
+      "no-await-in-loop":"off",
+      "max-classes-per-file": "off",
+      "class-methods-use-this": "off",
+      "consistent-return": "off",
+      "quote-props":"off"
+  }
+}

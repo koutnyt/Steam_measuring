@@ -1,19 +1,5 @@
 import { JSDOM } from 'jsdom';
-import { StorageAdapter } from "../src/dataRepository";
-import { DataStorageManager } from '../src/dataRepository';
-
-
-/*
-describe('StorageAdapter.domElementTextContentToNumber(', () => {
-  it('Should read the text content of a DOM element of downloaded webpage and parses it to a number.', () => {
-    const storageAdapter = new StorageAdapter();
-
-    expect(storageAdapter.domElementTextContentToNumber(testDomData,1,3)).toEqual(1351.7);
-  });
-});
-*/
-
-
+import { StorageAdapter, DataStorageManager } from "../src/dataRepository";
 
 describe('StorageAdapter.jsDomdDataToJSON', () => {
   it('Should read the text content of a DOM element of downloaded webpage and parses it to a JSON Data structure for thingspeak.', () => {
@@ -26,9 +12,6 @@ describe('StorageAdapter.jsDomdDataToJSON', () => {
     spy.mockRestore();
   });
 });
-
-
-
 
 const testDomData:JSDOM = new JSDOM(`<body>
 <table class="navext"><tr><td width="50%" class="a l"><a href="web?refresh=120">AutoRefresh</a></td><td width="50%" class="b r"><a href="web">Refresh</a></td></tr></table><table class="headdev">
@@ -77,9 +60,6 @@ const testDomData:JSDOM = new JSDOM(`<body>
 <p>&nbsp;</p>
 </body>
 `)
-
-
-
 
 const result = {
   write_api_key: process.env.WRITE_API_KEY as string,
