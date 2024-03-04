@@ -19,9 +19,9 @@
       "no-console": "off",
       "max-len": "off",
       "no-await-in-loop":"off",
-      "max-classes-per-file": "off",
       "class-methods-use-this": "off",
       "consistent-return": "off",
-      "quote-props":"off"
+      "quote-props":"off",
+      "import/prefer-default-export":"off"
   }
 }

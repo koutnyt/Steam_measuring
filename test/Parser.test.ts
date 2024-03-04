@@ -1,14 +1,13 @@
 import { JSDOM } from 'jsdom';
-import { StorageAdapter, DataStorageManager } from "../src/dataRepository";
+import { Parser } from '../src/dataParsing';
 
-describe('StorageAdapter.jsDomdDataToJSON', () => {
-  it('Should read the text content of a DOM element of downloaded webpage and parses it to a JSON Data structure for thingspeak.', () => {
-    const storageAdapter = new StorageAdapter(new DataStorageManager());
+describe('Parser.jsDomdDataToJSON', () => {
+  it('Should read the text content of a DOM element of downloaded webpage and parses it to a JSON Data structure for thingspeak.', 
+  () => {
+    const parser = new Parser(process.env.WRITE_API_KEY as string);
     const mockDate = new Date('2024-02-14T12:00:00Z');
     const spy = jest.spyOn(global, 'Date').mockImplementation(() => mockDate)
-
-    expect(storageAdapter.jsDomdDataToJSON(testDomData)).toEqual(result);
-
+    expect(parser.jsDomDataToJSON(testDomData)).toEqual(result);
     spy.mockRestore();
   });
 });

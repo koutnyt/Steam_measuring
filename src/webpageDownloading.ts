@@ -1,23 +1,11 @@
-export interface ILoader {
-    loadData(): Promise<Response | void>
-}
+import { JSDOM } from 'jsdom';
 
-/**
- * WebPageLoader class to load web page
- *
- * @class WebPageLoader
- * @implements {ILoader}
- */
-export class WebPageLoader implements ILoader {
-    /**
-     * Loads webpage asynchronously
-     *
-     * @return {*}  {(Promise<Response | void>)}
-     * @memberof WebPageLoader
-     */
-    async loadData(): Promise<Response | void> {
+export class WebPageDownloader {
+    constructor(private webPageLink: string) {}
+
+    private async downloadWebPage(): Promise<Response | void> {
         try {
-            const response = await fetch(process.env.STEAM_WEBSERVER as string);
+            const response = await fetch(this.webPageLink);
             if (!response.ok) {
                 throw new Error(`${response.status + response.statusText} Unable to load steam consumption counter webserver`);
             }
@@ -27,5 +15,14 @@ export class WebPageLoader implements ILoader {
             console.log(error);
             console.log(new Date());
         }
+    }
+
+    async downloadPageAndReturnJSDOM(): Promise<JSDOM> {
+        let response: Response | void;
+        do {
+            response = await this.downloadWebPage();
+        } while (!response);
+        const responseTextFormat = await response.text();
+        return new JSDOM(responseTextFormat);
     }
 }
