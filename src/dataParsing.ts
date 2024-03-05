@@ -1,6 +1,6 @@
 import { JSDOM } from 'jsdom';
 
-// Data structure required by Thingspeak service
+// Data structure required by ThingSpeak service
 export interface DataStructure {
     write_api_key: string
     updates: MeasureValue[]

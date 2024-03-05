@@ -12,8 +12,7 @@ export class WebPageDownloader {
             console.log(`Status code ${response.status}: response loaded successfully`);
             return response;
         } catch (error) {
-            console.log(error);
-            console.log(new Date());
+            console.log(`Error: ${error} ${new Date()}`);
         }
     }
 

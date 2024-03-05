@@ -2,7 +2,7 @@ import { JSDOM } from 'jsdom';
 import { Parser } from '../src/dataParsing';
 
 describe('Parser.jsDomdDataToJSON', () => {
-  it('Should read the text content of a DOM element of downloaded webpage and parses it to a JSON Data structure for thingspeak.', 
+  it('Should read the text content of a DOM element of downloaded web page and parses it to a JSON Data structure required by ThingSpeak service.', 
   () => {
     const parser = new Parser(process.env.WRITE_API_KEY as string);
     const mockDate = new Date('2024-02-14T12:00:00Z');

@@ -8,19 +8,19 @@ import { Uploader } from './dataUploading';
 dotenv.config({ path: '../../.env' });
 
 const webPageLink = process.env.STEAM_WEBSERVER;
-const thingspeakLink = process.env.DATABASE;
 const apiKey = process.env.WRITE_API_KEY;
+const thingspeakLink = process.env.DATABASE;
 
 if (!webPageLink) {
-    throw new Error('Connection link is not defined');
-}
-
-if (!thingspeakLink) {
-    throw new Error('Connection link to the thingspeak is not defined');
+    throw new Error('Connection link to web page is not defined');
 }
 
 if (!apiKey) {
-    throw new Error('Write api key to the thingspeak is not defined');
+    throw new Error('Write api key to ThingSpeak service is not defined');
+}
+
+if (!thingspeakLink) {
+    throw new Error('Connection link to ThingSpeak service is not defined');
 }
 
 const webPageDownloader = new WebPageDownloader(webPageLink);

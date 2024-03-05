@@ -5,7 +5,7 @@ export class Uploader {
 
     async uploadData(jsonData: DataStructure) {
         try {
-            // Send a POST request to the Thingspeak service
+            // Send a POST request to ThingSpeak service
             const response = await fetch(this.thingspeakLink, {
                 method: 'POST',
                 headers: {
@@ -15,12 +15,11 @@ export class Uploader {
                 body: JSON.stringify(jsonData),
             });
             if (!response.ok) {
-                throw new Error(`${response.status + response.statusText} Unable to wtrite the data to thingspeak`);
+                throw new Error(`${response.status + response.statusText} Unable to wtrite the data to ThingSpeak service`);
             }
-            console.log(`Status code ${response.status}: data successfully stored to thingspeak database. ${new Date()}`, '\n', '--------------------------------');
+            console.log(`Status code ${response.status}: data successfully stored to ThingSpeak service. ${new Date()}`, '\n', '--------------------------------');
         } catch (error) {
-            console.log(error);
-            console.log(new Date());
+            console.log(`Error: ${error} ${new Date()}`);
         }
     }
 }
