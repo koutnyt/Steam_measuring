@@ -1,15 +1,15 @@
 import { JSDOM } from 'jsdom';
-import { Parser } from '../src/dataParsing';
+import { JsonData, Parser } from '../src/dataParsing';
 
 describe('Parser.jsDomdDataToJSON', () => {
-  it('Should read the text content of a DOM element of downloaded web page and parses it to a JSON Data structure required by ThingSpeak service.', 
-  () => {
-    const parser = new Parser(process.env.WRITE_API_KEY as string);
-    const mockDate = new Date('2024-02-14T12:00:00Z');
-    const spy = jest.spyOn(global, 'Date').mockImplementation(() => mockDate)
-    expect(parser.jsDomDataToJSON(testDomData)).toEqual(result);
-    spy.mockRestore();
-  });
+    it('Should read the text content of a DOM element of downloaded web page and parses it to a JSON Data structure required by ThingSpeak service.', 
+    () => {
+        const parser = new Parser();
+        const mockDate = new Date('2024-02-14T12:00:00Z');
+        const spy = jest.spyOn(global, 'Date').mockImplementation(() => mockDate)
+        expect(parser.jsDomDataToJSON(testDomData)).toEqual(result);
+        spy.mockRestore();
+    });
 });
 
 const testDomData:JSDOM = new JSDOM(`<body>
@@ -58,24 +58,13 @@ const testDomData:JSDOM = new JSDOM(`<body>
 <td class="center"></table>
 <p>&nbsp;</p>
 </body>
-`)
+`);
 
-const result = {
-  write_api_key: process.env.WRITE_API_KEY as string,
-  updates: [
-    {
-      created_at: new Date('2024-02-14T12:00:00Z'),
-      field1: 1351.7,
-      field2: 1894.6,
-      field3: NaN,
-      field4: 0,
-      field5: 0,
-      field6: 319974.0,
-      field7: 302300.0,
-      field8: 0
-    }
-  ]
-}
-
-
-
+const result: JsonData = {
+    aLineActual: 1351.7,
+    bLineActual: 1894.6,
+    cLineActual: NaN,
+    aLineMonthly: 319974.0,
+    bLineMonthly: 302300.0,
+    cLineMonthly: 0
+};

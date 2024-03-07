@@ -24,8 +24,8 @@ if (!thingspeakLink) {
 }
 
 const webPageDownloader = new WebPageDownloader(webPageLink);
-const dataParser = new Parser(apiKey);
-const dataUploader = new Uploader(thingspeakLink);
+const dataParser = new Parser();
+const dataUploader = new Uploader(thingspeakLink, apiKey);
 
 async function storeDataFromWeb(downloader: WebPageDownloader, parser: Parser, uploader: Uploader) {
     const downloadedData: JSDOM = await downloader.downloadPageAndReturnJSDOM();

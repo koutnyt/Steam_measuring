@@ -6,8 +6,8 @@ This program is designed to download a web page, extract useful data, and upload
 
 Program is devided into four parts: 
 1. Web page downloading - it downloads web page and returns it as JSDOM object
-2. Data parser - it parses data in appropriate format required by ThingSpeak service
-3. Data uploading - it send POST request to ThingSpeak service
+2. Data parser - it parses data from JSDOM to JSON format
+3. Data uploading - it send POST request with data in body to ThingSpeak service
 4. Code in index file checks if environmental variables exist and run process of downloading and uploading data to ThingSpeak service every 15s 
 
 ## Installation
