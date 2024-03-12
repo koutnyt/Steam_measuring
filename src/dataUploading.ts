@@ -12,7 +12,7 @@ export class Uploader {
     async uploadData(jsonData: JsonData) {
         // Data structure required by ThingSpeak service
         const data = {
-            write_api_key: this.apiKey as string,
+            write_api_key: this.apiKey,
             updates: [{
                 created_at: new Date(),
                 field1: jsonData.aLineActual,
