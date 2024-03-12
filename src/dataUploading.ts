@@ -1,7 +1,13 @@
 import { JsonData } from './dataParsing';
+import { HttpRequest } from './utils/request';
+import type { FetchResource, FetchOption } from './utils/request';
 
 export class Uploader {
-    constructor(private thingspeakLink: string, private apiKey: string) {}
+    httpRequest: HttpRequest;
+
+    constructor(private thingspeakLink: FetchResource, private apiKey: string) {
+        this.httpRequest = new HttpRequest();
+    }
 
     async uploadData(jsonData: JsonData) {
         // Data structure required by ThingSpeak service
@@ -20,22 +26,15 @@ export class Uploader {
             }],
         };
 
-        try {
-            // Send a POST request to ThingSpeak service
-            const response = await fetch(this.thingspeakLink, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data),
-            });
-            if (!response.ok) {
-                throw new Error(`${response.status + response.statusText} Unable to wtrite the data to ThingSpeak service`);
-            }
-            console.log(`Status code ${response.status}: data successfully stored to ThingSpeak service. ${new Date()}`, '\n', '--------------------------------');
-        } catch (error) {
-            console.log(`Error: ${error} ${new Date()}`);
-        }
+        const fetchOption: FetchOption = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        };
+
+        await this.httpRequest.sendHttpRequest(this.thingspeakLink, fetchOption);
     }
 }

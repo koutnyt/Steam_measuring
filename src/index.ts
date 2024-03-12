@@ -4,8 +4,11 @@ import { JSDOM } from 'jsdom';
 import { WebPageDownloader } from './webPageDownloading';
 import { Parser } from './dataParsing';
 import { Uploader } from './dataUploading';
+import { logger } from './helper/logger';
 
 dotenv.config({ path: '../../.env' });
+
+logger.info('App started');
 
 const webPageLink = process.env.STEAM_WEBSERVER;
 const apiKey = process.env.WRITE_API_KEY;

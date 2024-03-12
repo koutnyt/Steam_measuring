@@ -1,25 +1,18 @@
 import { JSDOM } from 'jsdom';
+import { HttpRequest } from './utils/request';
+import type { FetchResource } from './utils/request';
 
 export class WebPageDownloader {
-    constructor(private webPageLink: string) {}
+    private httpRequest: HttpRequest;
 
-    private async downloadWebPage(): Promise<Response | void> {
-        try {
-            const response = await fetch(this.webPageLink);
-            if (!response.ok) {
-                throw new Error(`${response.status + response.statusText} Unable to load steam consumption counter webserver`);
-            }
-            console.log(`Status code ${response.status}: response loaded successfully`);
-            return response;
-        } catch (error) {
-            console.log(`Error: ${error} ${new Date()}`);
-        }
+    constructor(private webPageLink: FetchResource) {
+        this.httpRequest = new HttpRequest();
     }
 
     async downloadPageAndReturnJSDOM(): Promise<JSDOM> {
         let response: Response | void;
         do {
-            response = await this.downloadWebPage();
+            response = await this.httpRequest.sendHttpRequest(this.webPageLink);
         } while (!response);
         const responseTextFormat = await response.text();
         return new JSDOM(responseTextFormat);
