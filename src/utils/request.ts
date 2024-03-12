@@ -10,7 +10,7 @@ export class HttpRequest {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status + response.statusText}`);
             }
-            logger.info(`Http request to ${resource} was succesful`);
+            logger.debug(`Http request to ${resource} was succesful`);
             return response;
         } catch (error) {
             logger.warn(error);
