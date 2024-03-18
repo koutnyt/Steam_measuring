@@ -1,13 +1,13 @@
 import { JSDOM } from 'jsdom';
 
-export interface JsonData {
+export type JsonData = {
     aLineActual: number;
     bLineActual: number;
     cLineActual: number;
     aLineMonthly: number;
     bLineMonthly: number;
     cLineMonthly: number;
-}
+};
 
 export class Parser {
     domElementTextContentToNumber(dom: JSDOM, line: number, slicePosition: number): number {

@@ -1,4 +1,4 @@
-import { JsonData } from './dataParsing';
+import type { JsonData } from './dataParsing';
 import { HttpRequest } from './utils/request';
 import type { FetchResource, FetchOption } from './utils/request';
 

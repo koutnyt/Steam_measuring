@@ -5,6 +5,8 @@ configure({
         dateFile: {
             type: 'dateFile',
             filename: '../../app.log',
+            maxLogSize: 10485760,
+            numBackups: 3,
         },
     },
     categories: {
